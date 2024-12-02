@@ -17,17 +17,18 @@ library(tidyverse)
 
 ```{r}
 load("datos/accidentes2020_data.rda")
-
+print("Hola, aqui es Mila")
 accidentes_tb <- 
   accidentes2020_data |> 
   as_tibble()
+accidentes_tb
 ```
 
 ---
 ## Resumen
 
 ```{r}
-resumen <- accidentes_tb |> 
+resumen <- accidentes_tb |>
   count(sexo)
 ```
 
@@ -36,6 +37,6 @@ resumen <- accidentes_tb |>
 
 ```{r}
 ggplot(resumen) +
-  geom_col(aes(x = sexo, y = n, fill = sexo), alpha = 0.6) +
+  geom_col(aes(x = sexo, y = n, fill = sexo), alpha = 0.2) +
   theme_minimal()
 ```
