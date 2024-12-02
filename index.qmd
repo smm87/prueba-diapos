@@ -1,0 +1,41 @@
+---
+title: "primera presentacion"
+author: "Samuel Martinez"
+format: 
+  revealjs:
+    embed-resources: true
+editor: visual
+---
+
+## Carga de datos
+
+```{r}
+library(tidyverse)
+```
+
+---
+
+```{r}
+load("datos/accidentes2020_data.rda")
+
+accidentes_tb <- 
+  accidentes2020_data |> 
+  as_tibble()
+```
+
+---
+## Resumen
+
+```{r}
+resumen <- accidentes_tb |> 
+  count(sexo)
+```
+
+---
+## Visualización
+
+```{r}
+ggplot(resumen) +
+  geom_col(aes(x = sexo, y = n, fill = sexo), alpha = 0.6) +
+  theme_minimal()
+```
